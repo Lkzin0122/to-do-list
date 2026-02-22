@@ -16,7 +16,10 @@ app.post("/tasks", (req, res) => {
     completed: false
   };
 
-  tasks.push(newTask);
+ tasks.push(newTask);
+
+  // ✅ MOSTRA NO TERMINAL
+  console.log("Nova tarefa criada:", newTask.id, "Nome:",newTask.title);
 
   res.status(201).json(newTask);
 });

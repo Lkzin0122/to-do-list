@@ -1,10 +1,14 @@
 #root {
-  max-width: 1280px;
-  margin: 3em auto;
-  text-align: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .title {
@@ -16,14 +20,57 @@
 .subtitle  {
   font-size: 1.3em;
   color: #888;
-  
 }
 .Bottom {
-  margin-top: 2em;
-    display: block;
-    justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+}
+.form {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.texto {
+  margin: 8px;
+  padding: 6px;
+  width: 300px;
+  border-radius: 8px;
 
 }
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  height: 20px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background-color: #3a3a3a;
+  color: #fff;
+}
+.header {
+  padding: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.tasks {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.footer {
+  padding: 15px;
+  flex-shrink: 0;
+}
+
+
 .Status{ 
     display: block;
     justify-content: center;
