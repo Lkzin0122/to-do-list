@@ -35,15 +35,17 @@
 
 .texto {
   margin: 8px;
-  padding: 6px;
+  padding: 12px;
   width: 300px;
   border-radius: 8px;
-
+  border-color: none;
+  outline: none;
+  border-style: none;
 }
 .task {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   width: 500px;
   min-height: 40px;
@@ -60,12 +62,12 @@
   cursor: pointer;
   width: 18px;
   height: 18px;
+  margin-top: 2px;
 }
 
 .titulo {
   flex: 1;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  word-break: break-word;
   margin: 0;
 }
 .header {
@@ -84,7 +86,13 @@
   padding: 15px;
   flex-shrink: 0;
 }
-
+.delete-button {
+  background: #ec0707;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 6px;
+}
 
 .Status{ 
   display: block;
@@ -99,4 +107,16 @@
 
 .Status.concluida {
   color: #2ecc71;
+}
+
+@media (max-width: 600px) {
+  .task {
+    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .delete-button {
+    align-self: flex-end;
+  }
 }

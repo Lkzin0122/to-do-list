@@ -49,16 +49,17 @@ function App() {
       <main className="tasks">
         {tasks.map(task => (
           <div key={task.id} className="task">
+            <button className="delete-button" onClick={() => fetch(`http://localhost:3000/tasks/${task.id}`, { method: "DELETE" }).then(() => setTasks(tasks.filter(t => t.id !== task.id)))}>🗑️</button>
+            <p className="titulo">{task.title}</p>
+            <p className={`Status ${task.completed ? "concluida" : "pendente"}`}>
+              {task.completed ? "✅ Concluída" : "⏳ Pendente"}
+            </p>
             <input 
               type="checkbox" 
               checked={task.completed} 
               onChange={() => handleToggle(task.id, task.completed)}
               className="checkbox"
             />
-            <p className="titulo">{task.title}</p>
-            <p className={`Status ${task.completed ? "concluida" : "pendente"}`}>
-              {task.completed ? "✅ Concluída" : "⏳ Pendente"}
-            </p>
           </div>
         ))}
       </main>
