@@ -1,0 +1,38 @@
+#root {
+  max-width: 1280px;
+  margin: 3em auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 3.2em;
+  line-height: 1.1;
+  display: block;
+}
+
+.subtitle  {
+  font-size: 1.3em;
+  color: #888;
+  
+}
+.Bottom {
+  margin-top: 2em;
+    display: block;
+    justify-content: center;
+
+}
+.Status{ 
+    display: block;
+    justify-content: center;
+}
+
+.Status.pendente {
+  color: #f1c40f;
+}
+
+.Status.concluida {
+  color: #2ecc71;
+}
