@@ -44,14 +44,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
-  height: 20px;
+  gap: 10px;
+  width: 500px;
+  min-height: 40px;
   margin: 20px auto;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   background-color: #3a3a3a;
   color: #fff;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.titulo {
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin: 0;
 }
 .header {
   padding: 20px;
@@ -72,8 +87,10 @@
 
 
 .Status{ 
-    display: block;
-    justify-content: center;
+  display: block;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0;
 }
 
 .Status.pendente {

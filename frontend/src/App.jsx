@@ -11,6 +11,20 @@ function App() {
       .then(data => setTasks(data));
   }, []);
 
+  const handleToggle = async (id, completed) => {
+    await fetch(`http://localhost:3000/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ completed: !completed }),
+    });
+
+    setTasks(tasks.map(task => 
+      task.id === id ? { ...task, completed: !completed } : task
+    ));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -35,6 +49,12 @@ function App() {
       <main className="tasks">
         {tasks.map(task => (
           <div key={task.id} className="task">
+            <input 
+              type="checkbox" 
+              checked={task.completed} 
+              onChange={() => handleToggle(task.id, task.completed)}
+              className="checkbox"
+            />
             <p className="titulo">{task.title}</p>
             <p className={`Status ${task.completed ? "concluida" : "pendente"}`}>
               {task.completed ? "✅ Concluída" : "⏳ Pendente"}

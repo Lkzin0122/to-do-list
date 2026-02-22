@@ -42,6 +42,19 @@ app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
 
+// UPDATE
+app.put("/tasks/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const task = tasks.find(t => t.id === id);
+
+  if (!task) {
+    return res.status(404).json({ message: "Tarefa não encontrada" });
+  }
+
+  task.completed = req.body.completed;
+  res.json(task);
+});
+
 app.patch("/tasks/:id", (req, res) => {
   const id = Number(req.params.id);
 
