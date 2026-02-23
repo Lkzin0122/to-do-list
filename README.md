@@ -1,68 +1,88 @@
-# 📋 To-Do List API
+# ✅ To-Do List - Full Stack Application
 
-Sistema **To-Do List** desenvolvido para gerenciamento de tarefas, permitindo criar, visualizar, atualizar e remover atividades de forma simples e eficiente.
+Aplicação **Full Stack To-Do List** desenvolvida para gerenciamento de tarefas, permitindo criar, visualizar, atualizar e remover atividades de forma simples e eficiente.
 
-O projeto foi construído utilizando **Java** com o framework Spring Boot, seguindo o padrão de arquitetura REST, com foco em boas práticas de desenvolvimento backend e organização de código.
+O projeto é composto por:
 
-A aplicação disponibiliza uma **API RESTful** responsável pelo controle completo das tarefas, possibilitando operações CRUD (*Create, Read, Update e Delete*).
+- 🔙 **Backend** desenvolvido com **Spring Boot**
+- 💻 **Frontend** desenvolvido com **React**
+- 🐳 Containerização utilizando **Docker**
+
+A aplicação segue o padrão de arquitetura **cliente-servidor**, onde o frontend consome uma **API REST** responsável pelo gerenciamento das tarefas.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- ✅ Criar novas tarefas  
-- 📄 Listar todas as tarefas  
-- 🔎 Buscar tarefa por ID  
-- ✏️ Atualizar tarefas existentes  
+- ✅ Criar tarefas  
+- 📄 Listar tarefas  
+- ✏️ Atualizar tarefas  
 - ❌ Remover tarefas  
-- 🌐 API RESTful  
+- 🔎 Buscar tarefa por ID  
+- 🌐 Integração Frontend + Backend  
+- 🔄 Atualização dinâmica da interface  
+
+---
+
+## 🏗️ Arquitetura da Aplicação
+
+```text
+React (Frontend)
+        ↓ HTTP Requests
+Spring Boot API (Backend)
+        ↓
+Banco de Dados
+```
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
+### 🔙 Backend
 - Java 17  
 - Spring Boot  
-- Gradle  
 - Spring Web  
 - Spring Data JPA  
+- Gradle  
 - H2 Database / MySQL  
+
+### 💻 Frontend
+- React  
+- JavaScript (ES6+)  
+- HTML5  
+- CSS3  
+- Axios / Fetch API  
+
+### ⚙️ DevOps
 - Docker  
 
 ---
 
 ## 📦 Como Executar o Projeto
 
-### ▶️ Executando localmente
+---
 
-Clone o repositório:
+### ▶️ Backend (Spring Boot)
 
-```bash
-git clone https://github.com/seu-usuario/todo-list.git
-
-## 📦 Como Executar o Projeto
-
-### ▶️ Executando localmente
-
-Acesse a pasta do projeto:
+Acesse a pasta do backend:
 
 ```bash
-cd todo-list
+cd backend
 ```
 
 Execute a aplicação:
 
-#### 🪟 Windows
+#### Windows
 ```bash
 .\gradlew bootRun
 ```
 
-#### 🐧 Linux / 🍎 Mac
+#### Linux / Mac
 ```bash
 ./gradlew bootRun
 ```
 
-A aplicação estará disponível em:
+Backend disponível em:
 
 ```text
 http://localhost:8080
@@ -70,15 +90,43 @@ http://localhost:8080
 
 ---
 
+### 💻 Frontend (React)
+
+Acesse a pasta do frontend:
+
+```bash
+cd frontend
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute a aplicação:
+
+```bash
+npm start
+```
+
+Frontend disponível em:
+
+```text
+http://localhost:3000
+```
+
+---
+
 ## 🐳 Executando com Docker
 
-### Build da imagem
+Build da aplicação:
 
 ```bash
 docker build -t todo-list .
 ```
 
-### Executar container
+Executar container:
 
 ```bash
 docker run -p 8080:8080 todo-list
@@ -107,12 +155,19 @@ http://localhost:8080
 ## 📁 Estrutura do Projeto
 
 ```text
-src/
- ├── controller
- ├── service
- ├── repository
- ├── model
- └── TodoListApplication
+project-root/
+│
+├── backend/
+│   ├── src/
+│   ├── build.gradle
+│   └── gradlew
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+└── Dockerfile
 ```
 
 ---
@@ -121,8 +176,16 @@ src/
 
 Este projeto foi desenvolvido com o objetivo de praticar:
 
-- Desenvolvimento de APIs REST com Spring Boot  
+- Desenvolvimento Full Stack  
+- Construção de APIs REST  
 - Arquitetura em camadas  
+- Integração entre frontend e backend  
 - Persistência de dados com JPA  
-- Containerização utilizando Docker  
-- Boas práticas no desenvolvimento backend  
+- Containerização com Docker  
+- Boas práticas de desenvolvimento  
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Lucas Bitencourt** 🚀
