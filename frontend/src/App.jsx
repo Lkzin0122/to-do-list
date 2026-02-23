@@ -6,13 +6,13 @@ function App() {
   const [title, setTitle] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/tasks")
+    fetch("http://localhost:8080/tasks")
       .then(res => res.json())
       .then(data => setTasks(data));
   }, []);
 
   const handleToggle = async (id, completed) => {
-    await fetch(`http://localhost:3000/tasks/${id}`, {
+    await fetch(`http://localhost:8080/tasks/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("http://localhost:3000/tasks", {
+    const response = await fetch("http://localhost:8080/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,6 +36,8 @@ function App() {
       body: JSON.stringify({ title }),
     });
 
+    const newTask = await response.json();
+    setTasks([...tasks, newTask]);
     setTitle("");
   };
 
@@ -49,7 +51,8 @@ function App() {
       <main className="tasks">
         {tasks.map(task => (
           <div key={task.id} className="task">
-            <button className="delete-button" onClick={() => fetch(`http://localhost:3000/tasks/${task.id}`, { method: "DELETE" }).then(() => setTasks(tasks.filter(t => t.id !== task.id)))}>🗑️</button>
+            <button className="delete-button" onClick={() => fetch(`http://localhost:8080/tasks/${task.id}`, { method: "DELETE" }).then(() => setTasks(tasks.filter(t => t.id !== task.id)))}>🗑️</button>
+
             <p className="titulo">{task.title}</p>
             <p className={`Status ${task.completed ? "concluida" : "pendente"}`}>
               {task.completed ? "✅ Concluída" : "⏳ Pendente"}
