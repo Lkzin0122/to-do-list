@@ -53,9 +53,6 @@ Banco de Dados
 - CSS3  
 - Axios / Fetch API  
 
-### ⚙️ DevOps
-- Docker  
-
 ---
 
 ## 📦 Como Executar o Projeto
@@ -118,25 +115,6 @@ http://localhost:3000
 
 ---
 
-## 🐳 Executando com Docker
-
-Build da aplicação:
-
-```bash
-docker build -t todo-list .
-```
-
-Executar container:
-
-```bash
-docker run -p 8080:8080 todo-list
-```
-
-API disponível em:
-
-```text
-http://localhost:8080
-```
 
 ---
 
@@ -149,26 +127,6 @@ http://localhost:8080
 | POST | `/tasks` | Cria uma nova tarefa |
 | PUT | `/tasks/{id}` | Atualiza uma tarefa |
 | DELETE | `/tasks/{id}` | Remove uma tarefa |
-
----
-
-## 📁 Estrutura do Projeto
-
-```text
-project-root/
-│
-├── backend/
-│   ├── src/
-│   ├── build.gradle
-│   └── gradlew
-│
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── package.json
-│
-└── Dockerfile
-```
 
 ---
 
