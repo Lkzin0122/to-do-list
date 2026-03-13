@@ -64,14 +64,14 @@ Banco de Dados
 Acesse a pasta do backend:
 
 ```bash
-cd backend
+cd backend/todo-list
 ```
 
 Execute a aplicação:
 
 #### Windows
 ```bash
-.\gradlew bootRun
+gradlew.bat bootRun
 ```
 
 #### Linux / Mac
