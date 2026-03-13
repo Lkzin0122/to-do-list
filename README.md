@@ -69,9 +69,9 @@ cd backend/todo-list
 
 Execute a aplicação:
 
-#### Windows
+#### Windows (PowerShell)
 ```bash
-gradlew.bat bootRun
+.\gradlew.bat bootRun
 ```
 
 #### Linux / Mac
@@ -82,7 +82,7 @@ gradlew.bat bootRun
 Backend disponível em:
 
 ```text
-http://localhost:8080
+http://localhost:8080/tasks
 ```
 
 ---
