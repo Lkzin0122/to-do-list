@@ -4,6 +4,13 @@ import "./App.css";
 function App() {
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
+  const [filter, setFilter] = useState("todas");
+
+  const filteredTasks = tasks.filter(task => {
+    if (filter === "pendentes") return !task.completed;
+    if (filter === "concluidas") return task.completed;
+    return true;
+  });
 
   useEffect(() => {
     fetch("http://localhost:8080/tasks")
@@ -44,11 +51,18 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1 className="title">To-do-List</h1>
+        <h1 className="title">Todo-List</h1>
         <h2 className="subtitle">Minhas tarefas</h2>
       </header>
+
+      <main className="filter">
+        <button className="filter-button" onClick={() => setFilter("pendentes")}>Pendentes</button>
+        <button className="filter-button" onClick={() => setFilter("concluidas")}>Concluídas</button>
+        <button className="filter-button" onClick={() => setFilter("todas")}>Todas</button>
+        
+      </main>
       <main className="tasks">
-        {tasks.map(task => (
+        {filteredTasks.map(task => (
           <div key={task.id} className="task">
             <button className="delete-button" onClick={() => fetch(`http://localhost:8080/tasks/${task.id}`, { method: "DELETE" }).then(() => setTasks(tasks.filter(t => t.id !== task.id)))}>🗑️</button>
 

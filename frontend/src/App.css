@@ -131,6 +131,12 @@
   padding: 8px;
   align-self: center;
 }
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
 
 @media (max-width: 600px) {
   .task {
