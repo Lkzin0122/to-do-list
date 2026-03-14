@@ -47,15 +47,14 @@ function App() {
         <h1 className="title">To-do-List</h1>
         <h2 className="subtitle">Minhas tarefas</h2>
       </header>
-
       <main className="tasks">
         {tasks.map(task => (
           <div key={task.id} className="task">
             <button className="delete-button" onClick={() => fetch(`http://localhost:8080/tasks/${task.id}`, { method: "DELETE" }).then(() => setTasks(tasks.filter(t => t.id !== task.id)))}>🗑️</button>
 
-            <p className="titulo">{task.title}</p>
+            <p className={`tarefa ${task.completed ? "tarefa-concluida" : ""}`}>{task.title}</p>
             <p className={`Status ${task.completed ? "concluida" : "pendente"}`}>
-              {task.completed ? "✅ Concluída" : "⏳ Pendente"}
+              {task.completed ? "Concluída" : "Pendente" }
             </p>
             <input 
               type="checkbox" 
@@ -63,6 +62,23 @@ function App() {
               onChange={() => handleToggle(task.id, task.completed)}
               className="checkbox"
             />
+            <button className="edit" onClick={() => {
+              const newTitle = prompt("Digite o novo título da tarefa:", task.title);
+              if (newTitle) {
+                fetch(`http://localhost:8080/tasks/${task.id}`, {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ title: newTitle }),
+                }).then(() => {
+                  setTasks(tasks.map(t => t.id === task.id ? { ...t, title: newTitle } : t));
+                });
+              }
+            }}>
+              ✏️
+            </button>
+
           </div>
         ))}
       </main>

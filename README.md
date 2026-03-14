@@ -16,7 +16,7 @@ A aplicação segue o padrão de arquitetura **cliente-servidor**, onde o fronte
 
 - ✅ Criar tarefas  
 - 📄 Listar tarefas  
-- ✏️ Atualizar tarefas  
+- ✏️ Editar tarefas  
 - ❌ Remover tarefas  
 - 🔎 Buscar tarefa por ID  
 - 🌐 Integração Frontend + Backend  
